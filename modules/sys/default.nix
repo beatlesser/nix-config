@@ -1,6 +1,6 @@
 {
-	imports = [
-		./nix.nix
-		./usr.nix
-	];
+  imports = [
+    ./nix.nix
+    ./usr.nix
+  ];
 }
