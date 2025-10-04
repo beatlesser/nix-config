@@ -6,7 +6,7 @@
     let
       inherit (self) outputs;
       inherit (nixpkgs) lib legacyPackages;
-      inherit (import ./vars) username email;
+      inherit (import ./vars) username email shell;
       #add your hosts here
       hosts = [ "wsl" ];
       #add your systems here
@@ -22,6 +22,7 @@
               outputs
               username
               email
+	      shell
               ;
           };
           modules = [ ./hosts/${host} ];

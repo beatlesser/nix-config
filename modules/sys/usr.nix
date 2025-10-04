@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  shell,
   username,
   email,
   ...
@@ -8,7 +9,7 @@
 {
   users = {
     mutableUsers = true;
-    defaultUserShell = pkgs.fish;
+    defaultUserShell = pkgs.${shell};
     users.${username} = {
       isNormalUser = true;
       extraGroups = [

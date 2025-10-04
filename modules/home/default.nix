@@ -23,17 +23,17 @@
         ;
     };
     users.${username} = {
+      imports = [
+        ./shell.nix
+        ./neovim.nix
+        ./starship.nix
+      ];
       programs.home-manager.enable = true;
       home = {
         inherit username;
         homeDirectory = lib.mkForce "/home/${username}";
         stateVersion = "25.05";
       };
-      imports = [
-        ./shell.nix
-        ./neovim.nix
-        ./starship.nix
-      ];
     };
   };
 
