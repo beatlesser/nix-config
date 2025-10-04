@@ -30,6 +30,7 @@
         stateVersion = "25.05";
       };
       imports = [
+      	./shell.nix
         ./neovim.nix
         ./starship.nix
       ];
