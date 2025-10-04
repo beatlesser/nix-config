@@ -8,10 +8,10 @@
 {
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
-    ../common
+    inputs.impermanence.nixosModules.impermanence
+    inputs.nix-index-database.nixosModules.nix-index
+    ../../modules/home
   ];
-
-  tux.services.openssh.enable = true;
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
@@ -43,12 +43,6 @@
 
   environment.persistence."/persist" = {
     enable = false;
-  };
-
-  home-manager.users.${username} = {
-    imports = [
-      ./home.nix
-    ];
   };
 
   system.stateVersion = "25.05";
