@@ -6,17 +6,16 @@
     let
       inherit (self) outputs;
       inherit (nixpkgs) lib legacyPackages;
-      inherit (lib) genAttrs nixosSystem;
       inherit (import ./vars) username email;
       #add your hosts here
       hosts = [ "wsl" ];
       #add your systems here
-      forAllSystems = genAttrs [
+      forAllSystems = lib.genAttrs [
         "x86_64-linux"
       ];
       mkNixOSConfig =
         host:
-        nixosSystem {
+        lib.nixosSystem {
           specialArgs = {
             inherit
               inputs
@@ -32,7 +31,7 @@
       packages = forAllSystems (system: import ./pkgs legacyPackages.${system});
       formatter = forAllSystems (system: legacyPackages.${system}.nixfmt-tree);
       overlays = import ./overlays { inherit inputs; };
-      nixosConfigurations = genAttrs hosts (host: mkNixOSConfig host);
+      nixosConfigurations = lib.genAttrs hosts (host: mkNixOSConfig host);
     };
 
   inputs = {
