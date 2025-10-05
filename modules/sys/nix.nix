@@ -15,7 +15,7 @@
     };
 
     optimise = {
-      automatic = true;
+      automatic = false;
       dates = [ "weekly" ];
     };
 
@@ -50,5 +50,11 @@
         "${username}"
       ];
     };
+  };
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    flake = "/home/${username}/nix-config";
   };
 }
