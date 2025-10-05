@@ -37,4 +37,8 @@
       enableTelevisionIntegration = true;
     };
   };
+  #if programs do not support,add pkgs manual
+  home.packages = with pkgs; [
+    duf
+  ];
 }
