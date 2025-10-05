@@ -44,7 +44,6 @@
 
   environment.systemPackages = with pkgs; [
     # System Packages
-    nix-search-tv
     curl
     wget
     duf
