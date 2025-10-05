@@ -47,8 +47,7 @@
     curl
     wget
     duf
-    lsd # better ls
-    killall # better kill
+    lsd
     unzip
     fzf
     nix-search-tv
