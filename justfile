@@ -58,7 +58,7 @@ repl:
 [linux]
 [group('nix')]
 @genfacter:
-    nix run github:numtide/nixos-facter -- -o facter.json
+    sudo nix run github:numtide/nixos-facter -- -o facter.json
 
 [linux]
 [group('nix')]
