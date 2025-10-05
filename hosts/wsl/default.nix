@@ -53,6 +53,7 @@
     jq # 处理 JSON 数据
     unzip
     fzf
+    nix-search-tv
     bat # better cat
     fd # better find
     ripgrep # better grep

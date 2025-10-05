@@ -56,6 +56,11 @@ repl:
 
 [linux]
 [group('nix')]
+@nh-deploy host="wsl":
+    sudo nh switch --flake .#{{ host }}
+
+[linux]
+[group('nix')]
 @fix:
     nix-store --repair --verify # --check-contents
 
@@ -73,3 +78,9 @@ repl:
 [group('nix')]
 @fast-build pkg="":
     nix run github:Mic92/nix-fast-build -- --flake .#packages.x86_64-linux.{{ pkg }} --eval-max-memory-size 15360
+
+@ns:
+    nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history
+
+@fd *pkgs:
+    nh search {{ pkgs }}
