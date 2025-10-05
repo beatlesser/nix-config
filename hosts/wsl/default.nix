@@ -44,9 +44,10 @@
 
   environment.systemPackages = with pkgs; [
     # System Packages
+    nix-search-tv
     curl
     wget
-    duf # 查看系统磁盘的空间使用情况 better df
+    duf
     lsd # better ls
     killall # better kill
     openssl # SSL/TLS 安全通信、证书管理和加密。
@@ -55,12 +56,10 @@
     fzf
     bat # better cat
     fd # better find
-    duf # better du
     ripgrep # better grep
     file
     dos2unix
     just
-    gcc
     git
 
     cliphist # 管理和查看剪贴板历史记录
