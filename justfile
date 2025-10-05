@@ -10,8 +10,7 @@ set positional-arguments
 
 [group('nix')]
 @fmt:
-  # format the nix files in this repo
-  nix fmt
+    nix fmt
 
 [linux]
 [group('nix')]
@@ -65,7 +64,7 @@ repl:
     sudo nix run github:numtide/nixos-facter -- -o facter.json
 
 @ns:
-    nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history
+    tv nix-search-tv
 
 @fd *pkgs:
     nh search {{ pkgs }}
