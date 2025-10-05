@@ -22,7 +22,7 @@
               outputs
               username
               email
-	      shell
+              shell
               ;
           };
           modules = [ ./hosts/${host} ];

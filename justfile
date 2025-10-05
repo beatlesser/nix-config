@@ -37,10 +37,8 @@ repl:
 
 [linux]
 [group('nix')]
-sh *pkgs = "git neovim":
-    #!/usr/bin/env bash
-    set -euxo pipefail
-    source scripts/prefix.sh "$@"
+@sh *pkgs = "git neovim":
+    source scripts/prefix.sh $@
 
 [linux]
 [group('nix')]

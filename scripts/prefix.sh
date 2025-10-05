@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-list=()  
+pkgs=()  
 for pkg in "$@"; do
-   list+=("nixpkgs#$pkg")
+   pkgs+=("nixpkgs#$pkg")
 done
-nix shell ${list[@]}
+nix shell "${pkgs[@]}"
     
     
