@@ -3,6 +3,6 @@ pkgs=()
 for pkg in "$@"; do
    pkgs+=("nixpkgs#$pkg")
 done
-nix shell "${pkgs[@]}"
+nix shell ${pkgs[@]}
     
     
