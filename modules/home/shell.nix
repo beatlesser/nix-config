@@ -31,5 +31,10 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
     };
+
+    nix-search-tv = {
+      enable = true;
+      enableTelevisionIntegration = true;
+    };
   };
 }
