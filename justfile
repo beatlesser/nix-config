@@ -8,6 +8,11 @@ set positional-arguments
 @init:
     nix run github:nix-community/nix-init
 
+[group('nix')]
+@fmt:
+  # format the nix files in this repo
+  nix fmt
+
 [linux]
 [group('nix')]
 @up *inputs:
@@ -32,8 +37,7 @@ set positional-arguments
 [linux]
 [group('nix')]
 repl:
-    nix repl -f '<nixpkgs>'
-
+    nix repl -f flake:nixpkgs
 
 [linux]
 [group('nix')]
