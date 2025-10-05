@@ -49,8 +49,6 @@
     duf
     lsd # better ls
     killall # better kill
-    openssl # SSL/TLS 安全通信、证书管理和加密。
-    jq # 处理 JSON 数据
     unzip
     fzf
     nix-search-tv

@@ -52,12 +52,7 @@ repl:
 [linux]
 [group('nix')]
 @deploy host="wsl":
-    sudo nixos-rebuild switch --flake .#{{ host }}
-
-[linux]
-[group('nix')]
-@nh-deploy host="wsl":
-    sudo nh switch --flake .#{{ host }}
+    nh os switch . -H {{ host }}
 
 [linux]
 [group('nix')]
@@ -68,16 +63,6 @@ repl:
 [group('nix')]
 @genfacter:
     sudo nix run github:numtide/nixos-facter -- -o facter.json
-
-[linux]
-[group('nix')]
-@fast-deploy host="wsl":
-    nix run github:Mic92/nix-fast-build -- --flake .#nixosConfigurations.{{ host }}.config.system.build.toplevel --skip-cached --eval-workers 2 --eval-max-memory-size 15360
-
-[linux]
-[group('nix')]
-@fast-build pkg="":
-    nix run github:Mic92/nix-fast-build -- --flake .#packages.x86_64-linux.{{ pkg }} --eval-max-memory-size 15360
 
 @ns:
     nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history
