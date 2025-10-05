@@ -66,5 +66,5 @@ repl:
 @ns:
     tv nix-search-tv
 
-@fd *pkgs:
-    nh search {{ pkgs }}
+@fd *options:
+    nh search {{ options }}
