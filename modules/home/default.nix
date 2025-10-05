@@ -24,7 +24,7 @@
     };
     users.${username} = {
       imports = [
-      	./xdg.nix
+        ./xdg.nix
         ./shell.nix
         ./neovim.nix
         ./starship.nix
