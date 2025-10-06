@@ -6,7 +6,9 @@
     let
       inherit (self) outputs;
       inherit (nixpkgs) lib legacyPackages;
-      inherit (import ./vars) username email shell;
+      #import your vars and lib here
+      myVars = import ./vars.nix;
+      myLib = import ./lib.nix;
       #add your hosts here
       hosts = [ "wsl" ];
       #add your systems here
@@ -20,9 +22,9 @@
             inherit
               inputs
               outputs
-              username
-              email
-              shell
+              host
+              myLib
+              myVars
               ;
           };
           modules = [ ./hosts/${host} ];
@@ -63,7 +65,6 @@
 
     nur.url = "github:nix-community/nur";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-    impermanence.url = "github:nix-community/impermanence";
     deploy-rs.url = "github:serokell/deploy-rs";
     sops-nix.url = "github:Mic92/sops-nix";
   };

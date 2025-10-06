@@ -1,8 +1,10 @@
 {
   pkgs,
-  username,
+  myVars,
   ...
-}:
+}:let
+    inherit (myVars) username;
+in
 {
   nix = {
     # @TODO enable when lix is patched

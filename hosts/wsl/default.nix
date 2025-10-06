@@ -1,20 +1,21 @@
 {
   pkgs,
   inputs,
-  username,
+  host,
+  myVars,
   config,
   ...
 }:
+let
+  inherit (myVars) username;
+in
 {
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
-    inputs.impermanence.nixosModules.impermanence
-    inputs.nix-index-database.nixosModules.nix-index
     ../../modules/home
-    ../../modules/sys
+    ../../modules/nixos/nix.nix
+    ../../modules/nixos/usr.nix
   ];
-
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   nixpkgs = {
     config.cudaSupport = true;
@@ -27,7 +28,7 @@
     useWindowsDriver = true;
   };
 
-  networking.hostName = "wsl";
+  networking.hostName = "${host}";
 
   programs = {
     ssh.startAgent = true;
@@ -41,7 +42,10 @@
     dconf.enable = true;
   };
 
-  programs.git.enable = true;
+  programs = {
+    git.enable = true;
+    zsh.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     # System Packages

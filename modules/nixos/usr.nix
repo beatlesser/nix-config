@@ -1,11 +1,12 @@
 {
   config,
   pkgs,
-  shell,
-  username,
-  email,
+  myVars,
   ...
 }:
+let
+  inherit (myVars) username shell;
+in
 {
   users = {
     mutableUsers = true;
