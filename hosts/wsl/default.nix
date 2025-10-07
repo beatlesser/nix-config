@@ -13,8 +13,10 @@ in
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
     ../../modules/home
+    ../../modules/nixos/doc.nix
     ../../modules/nixos/nix.nix
     ../../modules/nixos/usr.nix
+    ../../modules/nixos/timezone.nix
   ];
 
   nixpkgs = {

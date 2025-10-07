@@ -36,6 +36,8 @@ in
       http-connections = 50;
 
       substituters = [
+        "https://mirrors.ustc.edu.cn/nix-channels/store"
+        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
         "https://cache.garnix.io" # add garnix cache form github loneros-nixos repo
         "https://nix-community.cachix.org"
       ];
@@ -54,7 +56,7 @@ in
       ];
     };
   };
-
+  #better nixos command
   programs.nh = {
     enable = true;
     clean.enable = true;

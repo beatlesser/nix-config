@@ -11,7 +11,7 @@
     nixos.enable = false;
   };
 
-  environment.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     tldr
   ];
 }
