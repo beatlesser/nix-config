@@ -6,6 +6,6 @@ in
   imports = myLib.mkImports ./.;
 
   programs = {
-    zsh.enable = true;
+    fish.enable = true;
   };
 }

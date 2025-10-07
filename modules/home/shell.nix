@@ -1,11 +1,8 @@
 { pkgs, ... }:
 {
   programs = {
-    zsh = {
+    fish = {
       enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
     };
 
     fastfetch.enable = true;
@@ -23,13 +20,13 @@
     zoxide = {
       enable = true;
       enableBashIntegration = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     television = {
       enable = true;
       enableBashIntegration = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     nix-search-tv = {

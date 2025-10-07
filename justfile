@@ -8,10 +8,6 @@ set positional-arguments
 @init:
     nix run github:nix-community/nix-init
 
-[group('nix')]
-@fmt:
-    nix fmt
-
 [linux]
 [group('nix')]
 @up *inputs:
@@ -60,7 +56,7 @@ repl:
 
 [linux]
 [group('nix')]
-@genfacter:
+@facter:
     sudo nix run github:numtide/nixos-facter -- -o facter.json
 
 @ns:

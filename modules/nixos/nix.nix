@@ -2,8 +2,9 @@
   pkgs,
   myVars,
   ...
-}:let
-    inherit (myVars) username;
+}:
+let
+  inherit (myVars) username;
 in
 {
   nix = {

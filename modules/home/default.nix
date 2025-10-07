@@ -1,6 +1,6 @@
 {
   lib,
-      host,
+  host,
   myLib,
   myVars,
   inputs,

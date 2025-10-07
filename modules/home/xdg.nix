@@ -93,6 +93,37 @@
       associations.removed = {
         # ......
       };
+
+    };
+
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-wlr # includes RemoteDesktop patch
+        # Niri
+        xdg-desktop-portal-gnome
+      ];
+      configPackages = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-wlr
+      ];
+      config = {
+        common = {
+          default = [
+            "gnome"
+          ];
+        };
+        niri = {
+          default = [
+            "gnome"
+            "wlr"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+        };
+      };
     };
 
     userDirs = {
