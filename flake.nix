@@ -2,41 +2,41 @@
   description = "uuuc's Nix Flakes";
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       inherit (nixpkgs) lib legacyPackages;
+      inherit (lib) genAttrs mapAttrs;
+      inherit (builtins) readDir;
       #import your vars and lib here
       myvars = import ./vars.nix;
-      mylib = import ./lib.nix { inherit lib; };
-      #add your hosts here
-      hosts = [ "wsl" ];
-      #add your systems here
-      forAllSystems = lib.genAttrs [
+      mylib = import ./lib { inherit lib; };
+      #pass into your host config
+      args = {
+        inherit
+          inputs
+          lib
+          mylib
+          myvars
+          ;
+      };
+
+      forAllSystems = genAttrs [
         "x86_64-linux"
+        "aarch64-linux"
       ];
-      mkNixOSConfig =
-        host:
-        lib.nixosSystem {
-          specialArgs = {
-            inherit
-              inputs
-              outputs
-              host
-              mylib
-              myvars
-              ;
-          };
-          modules = [
-            ./hosts/${host}
-          ];
-        };
+
     in
     {
       packages = forAllSystems (system: import ./pkgs legacyPackages.${system});
       formatter = forAllSystems (system: legacyPackages.${system}.nixfmt-tree);
       overlays = import ./overlays { inherit inputs; };
-      nixosConfigurations = lib.genAttrs hosts (host: mkNixOSConfig host);
+      nixosConfigurations = mapAttrs (host: _: import ./hosts/${host} args) (readDir ./hosts);
     };
 
   inputs = {

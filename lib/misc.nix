@@ -1,11 +1,17 @@
 { lib, ... }:
 let
-  inherit (builtins) map attrNames readDir;
+  inherit (builtins)
+    map
+    attrNames
+    mapAttrs
+    readDir
+    ;
   inherit (lib) filterAttrs strings path;
 in
 {
   #helper func
-  relativeToRoot = path.append ./.;
+  relativeToRoot = path.append ../.;
+
   mkImports =
     dir:
     map (path: dir + "/${path}") (
@@ -15,4 +21,5 @@ in
         ) (readDir dir)
       )
     );
+
 }

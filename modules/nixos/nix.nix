@@ -7,16 +7,10 @@ let
   inherit (myvars) username;
 in
 {
-  #better nixos command
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    flake = "/home/${username}/nix-config";
-  };
   nix = {
     package = pkgs.lix;
     gc = {
-      automatic = false;
+      automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };

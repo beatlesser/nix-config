@@ -47,7 +47,7 @@ repl:
 [linux]
 [group('nix')]
 @deploy host="wsl":
-    nh os switch . -H {{ host }}
+   sudo nixos-rebuild switch --flake .#{{ host }} 
 
 [linux]
 [group('nix')]
@@ -61,6 +61,3 @@ repl:
 
 @ns:
     tv nix-search-tv
-
-@fd *options:
-    nh search {{ options }}

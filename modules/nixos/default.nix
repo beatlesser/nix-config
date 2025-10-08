@@ -1,4 +1,4 @@
-{ mylib, myVars, ... }:
+{ mylib, myvars, ... }:
 let
   inherit (mylib) mkImports;
 in
