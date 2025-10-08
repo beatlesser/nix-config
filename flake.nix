@@ -9,10 +9,8 @@
       ...
     }@inputs:
     let
-      inherit (self) outputs;
       inherit (nixpkgs) lib legacyPackages;
       inherit (lib) genAttrs mapAttrs;
-      inherit (builtins) readDir;
       #import your vars and lib here
       myvars = import ./vars.nix;
       mylib = import ./lib { inherit lib; };
@@ -36,7 +34,7 @@
       packages = forAllSystems (system: import ./pkgs legacyPackages.${system});
       formatter = forAllSystems (system: legacyPackages.${system}.nixfmt-tree);
       overlays = import ./overlays { inherit inputs; };
-      nixosConfigurations = mapAttrs (host: _: import ./hosts/${host} args) (readDir ./hosts);
+      nixosConfigurations = mapAttrs (host: _: import ./hosts/${host} args) (builtins.readDir ./hosts);
     };
 
   inputs = {
