@@ -7,6 +7,10 @@
   outputs,
   ...
 }:
+let
+  inherit (myvars) username;
+  inherit (mylib) relativeToRoot;
+in
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -29,5 +33,6 @@
       ./doc.nix
       ./shell.nix
     ];
+    users.${username} = relativeToRoot "hosts/${host}/home.nix";
   };
 }

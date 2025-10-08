@@ -11,7 +11,7 @@
     useNetworkd = true;
     enableIPv6 = true;
     #ntp for sync your time
-    networking.timeServers = [
+    timeServers = [
       "ntp.aliyun.com" # Aliyun NTP Server
       "ntp.tencent.com" # Tencent NTP Server
     ];

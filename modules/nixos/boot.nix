@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
@@ -12,7 +12,7 @@
     kernelModules = [ "kvm" ];
 
     initrd = {
-      availableKernelModule = [
+      availableKernelModules = [
         "xhci_pci"
         "ahci"
         "nvme"

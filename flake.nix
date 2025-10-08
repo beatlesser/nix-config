@@ -27,7 +27,9 @@
               myvars
               ;
           };
-          modules = [ ./hosts/${host} ];
+          modules = [
+            ./hosts/${host}
+          ];
         };
     in
     {
