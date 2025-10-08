@@ -2,18 +2,17 @@
   pkgs,
   inputs,
   host,
-  myVars,
+  myvars,
   config,
   ...
 }:
 let
-  inherit (myVars) username;
+  inherit (myvars) username;
 in
 {
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
-    ../../modules/home
-    ../../modules/nixos/doc.nix
+    ./home.nix
     ../../modules/nixos/nix.nix
     ../../modules/nixos/usr.nix
     ../../modules/nixos/timezone.nix

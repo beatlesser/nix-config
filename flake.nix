@@ -7,8 +7,8 @@
       inherit (self) outputs;
       inherit (nixpkgs) lib legacyPackages;
       #import your vars and lib here
-      myVars = import ./vars.nix;
-      myLib = import ./lib.nix;
+      myvars = import ./vars.nix;
+      mylib = import ./lib.nix { inherit lib; };
       #add your hosts here
       hosts = [ "wsl" ];
       #add your systems here
@@ -23,8 +23,8 @@
               inputs
               outputs
               host
-              myLib
-              myVars
+              mylib
+              myvars
               ;
           };
           modules = [ ./hosts/${host} ];

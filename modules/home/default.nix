@@ -1,20 +1,16 @@
 {
   lib,
   host,
-  myLib,
-  myVars,
+  mylib,
+  myvars,
   inputs,
   outputs,
   ...
 }:
-let
-  inherit (myVars) username;
-in
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
-
   home-manager = {
     backupFileExtension = "hm-backup";
     useUserPackages = true;
@@ -23,24 +19,15 @@ in
         inputs
         outputs
         host
-        myLib
-        myVars
+        mylib
+        myvars
         ;
     };
-    users.${username} = {
-      programs.home-manager.enable = true;
-      imports = [
-        ./xdg.nix
-        ./shell.nix
-        ./neovim.nix
-        ./starship.nix
-      ];
-      home = {
-        inherit username;
-        homeDirectory = lib.mkForce "/home/${username}";
-        stateVersion = "25.05";
-      };
-    };
+    sharedModules = [
+      ./neovim.nix
+      ./starship.nix
+      ./doc.nix
+      ./shell.nix
+    ];
   };
-
 }

@@ -1,10 +1,10 @@
 {
   host,
-  myVars,
+  myvars,
   ...
 }:
 let
-  inherit (myVars)
+  inherit (myvars)
     timeZone
     defaultLocale
     extraLocale

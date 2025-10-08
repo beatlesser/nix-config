@@ -1,29 +1,30 @@
 {
   pkgs,
-  myVars,
+  myvars,
   ...
 }:
 let
-  inherit (myVars) username;
+  inherit (myvars) username;
 in
 {
+  #better nixos command
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    flake = "/home/${username}/nix-config";
+  };
   nix = {
-    # @TODO enable when lix is patched
-    # package = pkgs.lix;
-
+    package = pkgs.lix;
     gc = {
       automatic = false;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-
     optimise = {
       automatic = true;
       dates = [ "weekly" ];
     };
-
     channel.enable = false;
-
     settings = {
       extra-platforms = [
         "aarch64-linux"
@@ -33,7 +34,7 @@ in
       experimental-features = "nix-command flakes";
       keep-going = true;
       warn-dirty = false;
-      http-connections = 50;
+      http-connections = 16;
 
       substituters = [
         "https://mirrors.ustc.edu.cn/nix-channels/store"
@@ -55,11 +56,5 @@ in
         "${username}"
       ];
     };
-  };
-  #better nixos command
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    flake = "/home/${username}/nix-config";
   };
 }

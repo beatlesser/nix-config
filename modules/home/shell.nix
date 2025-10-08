@@ -1,8 +1,18 @@
-{ pkgs, ... }:
+{ pkgs, myvars, ... }:
+let
+  inherit (myvars) username email;
+in
 {
   programs = {
+
     fish = {
       enable = true;
+    };
+
+    git = {
+      enable = true;
+      userName = "${username}";
+      userEmail = "${email}";
     };
 
     fastfetch.enable = true;

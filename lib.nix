@@ -1,14 +1,18 @@
 { lib, ... }:
-{
+let
   inherit (builtins) map attrNames readDir;
+  inherit (lib) filterAttrs strings path;
+in
+{
+  #helper func
+  relativeToRoot = path.append ./.;
   mkImports =
     dir:
     map (path: dir + "/${path}") (
       attrNames (
-        lib.filterAttrs (
-          name: _type: (_type == "directory" || (name != "default.nix" && lib.strings.hasSuffix ".nix" name))
+        filterAttrs (
+          name: _type: (_type == "directory" || (name != "default.nix" && strings.hasSuffix ".nix" name))
         ) (readDir dir)
       )
     );
-
 }
