@@ -69,6 +69,7 @@
     nur.url = "github:nix-community/nur";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     deploy-rs.url = "github:serokell/deploy-rs";
+    impermanence.url = "github:nix-community/impermanence";
     sops-nix.url = "github:Mic92/sops-nix";
   };
 }
