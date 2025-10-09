@@ -10,8 +10,9 @@ let
 
   system = "x86_64-linux";
 
-  base-modules = [
-    ./misc.nix
+  base-modules = map relativeToRoot [
+    "modules/base/nix.nix"
+    "modules/base/pkgs.nix"
   ];
 
   home-modules =
@@ -22,11 +23,11 @@ let
 
   nixos-modules = map relativeToRoot [
     "modules/nixos/usr.nix"
-    "modules/nixos/nix.nix"
-    "modules/nixos/pkgs.nix"
-    "modules/nixos/timezone.nix"
+    "modules/nixos/i18n.nix"
   ];
+
   extra-modules = [
+    ./misc.nix
     inputs.nixos-wsl.nixosModules.wsl
   ];
 
