@@ -25,7 +25,12 @@ in
 
     lsd.enable = true;
 
-    btop.enable = true;
+    btop = {
+      enable = true;
+      settings = {
+        vim_keys = true;
+      };
+    };
 
     zoxide = {
       enable = true;
