@@ -1,4 +1,4 @@
-{ pkgs, myVars, ... }:
+{ pkgs, ... }:
 {
   #add some cross-host pkgs and programs here
   programs.fish.enable = true;
