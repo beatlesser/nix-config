@@ -10,7 +10,7 @@ let
 
   system = "x86_64-linux";
 
-  nixos-modules = map relativeToRoot [
+  base-modules = map relativeToRoot [
     "modules/base/nix.nix"
     "modules/base/pkgs.nix"
     "modules/nixos/usr.nix"
@@ -35,7 +35,7 @@ nixosSystem (
     inherit
       host
       system
-      nixos-modules
+      base-modules
       home-modules
       extra-modules
       ;

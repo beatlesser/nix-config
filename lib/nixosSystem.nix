@@ -3,7 +3,7 @@
   lib,
   system,
   host,
-  nixos-modules,
+  base-modules,
   home-modules ? [ ],
   extra-modules ? [ ],
   myvars,
@@ -39,7 +39,7 @@ in
 lib.nixosSystem {
   inherit system specialArgs;
   modules =
-    nixos-modules
+    base-modules
     ++ (lib.optionals ((lib.lists.length home-modules) > 0) [
       home-manager.nixosModules.home-manager
       {
