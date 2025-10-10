@@ -3,9 +3,8 @@
   lib,
   system,
   host,
-  base-modules,
   nixos-modules,
-  home-modules,
+  home-modules ? [ ],
   extra-modules ? [ ],
   myvars,
   mylib,
@@ -40,9 +39,8 @@ in
 lib.nixosSystem {
   inherit system specialArgs;
   modules =
-    base-modules
-    ++ nixos-modules
-    ++ [
+    nixos-modules
+    ++ (lib.optionals ((lib.lists.length home-modules) > 0) [
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -51,6 +49,6 @@ lib.nixosSystem {
         home-manager.extraSpecialArgs = specialArgs;
         home-manager.users."${myvars.username}".imports = home-modules;
       }
-    ]
+    ])
     ++ extra-modules;
 }
