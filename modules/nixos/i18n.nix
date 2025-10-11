@@ -13,7 +13,7 @@ in
 {
   # Set your time zone.
   time.timeZone = "${timeZone}";
-# Sync hc to local time
+  # Sync hc to local time
   time.hardwareClockInLocalTime = true;
   #services.automatic-timezoned.enable = true; #based on IP location
 

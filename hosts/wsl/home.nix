@@ -4,6 +4,7 @@ let
 in
 {
   programs.home-manager.enable = true;
+  programs.nix-index-database.comma.enable = true;
 
   home = {
     inherit username;

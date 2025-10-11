@@ -11,7 +11,13 @@
   ...
 }:
 let
-  inherit (inputs) nixpkgs nixpkgs-stable home-manager;
+  inherit (inputs)
+    nixpkgs
+    nixpkgs-stable
+    home-manager
+    nix-index-database
+    nix-flatpak
+    ;
 
   baseArgs = {
     inherit
@@ -47,6 +53,10 @@ lib.nixosSystem {
         home-manager.useUserPackages = true;
         home-manager.backupFileExtension = "home-manager.backup";
         home-manager.extraSpecialArgs = specialArgs;
+        home-manager.sharedModules = [
+          nix-index-database.homeModules.nix-index
+          nix-flatpak.homeManagerModules.nix-flatpak
+        ];
         home-manager.users."${myvars.username}".imports = home-modules;
       }
     ])

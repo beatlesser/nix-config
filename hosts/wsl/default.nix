@@ -5,6 +5,7 @@
 }@args:
 let
   inherit (mylib) relativeToRoot nixosSystem;
+  inherit (inputs) nix-index-database nixos-wsl;
 
   host = "wsl";
 
@@ -21,11 +22,13 @@ let
     map relativeToRoot [
       "modules/home"
     ]
-    ++ [ ./home.nix ];
+    ++ [
+      ./home.nix
+    ];
 
   extra-modules = [
     ./misc.nix
-    inputs.nixos-wsl.nixosModules.wsl
+    nixos-wsl.nixosModules.wsl
   ];
 
 in

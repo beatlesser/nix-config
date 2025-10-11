@@ -46,7 +46,7 @@ repl:
 
 [linux]
 [group('nix')]
-@deploy host="wsl":
+@local host="wsl":
    sudo nixos-rebuild switch --flake .#{{ host }} 
 
 [linux]
