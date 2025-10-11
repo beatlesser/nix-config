@@ -42,6 +42,7 @@ in
       rs = "reset";
       rt = "restore";
       st = "status";
+      df = "diff";
       ls = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate";
       ll = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat";
       cm = "commit -m";

@@ -36,7 +36,7 @@ repl:
 
 [linux]
 [group('nix')]
-@sh *pkgs = "git neovim":
+@shell *pkgs = "git neovim":
     source scripts/prefix.sh $@
 
 [linux]
