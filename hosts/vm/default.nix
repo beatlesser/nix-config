@@ -20,12 +20,14 @@ let
     "modules/nixos"
   ];
 in
-nixosSystem args
-// {
-  inherit
-    system
-    host
-    base-modules
-    home-modules
-    ;
-}
+nixosSystem (
+  args
+  // {
+    inherit
+      system
+      host
+      base-modules
+      home-modules
+      ;
+  }
+)
