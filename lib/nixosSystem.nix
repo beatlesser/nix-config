@@ -11,6 +11,7 @@
 }:
 let
   inherit (myvars) username;
+
   inherit (inputs)
     nixpkgs
     nixpkgs-stable
@@ -47,13 +48,15 @@ let
     nix-flatpak.nixosModules.nix-flatpak
     nix-index-database.nixosModules.nix-index
   ];
+
 in
+
 lib.nixosSystem {
   inherit system specialArgs;
   modules =
     shared-modules
     ++ base-modules
-    ++ (lib.optionals ((lib.lists.length home-modules) > 0) [
+    ++ lib.optionals ((lib.lists.length home-modules) > 0) [
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -66,5 +69,5 @@ lib.nixosSystem {
         ];
         home-manager.users."${username}".imports = home-modules;
       }
-    ]);
+    ];
 }
