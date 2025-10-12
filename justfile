@@ -3,18 +3,20 @@ set positional-arguments
 @default:
     just --list
 
-[linux]
-[group('nix')]
+@install target:
+    nix --experimental-features "nix-command flakes" run github:nix-community/disko -- -m disko -f .#{{ target }}
+    mkdir -p /mnt/var/lib/sops-nix
+    nixos-install --flake .#{{ target }}
+
+@install-remote target ip:
+    nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- -i ~/.ssh/id_ed25519 --flake .#{{ target }} root@{{ ip }}
+
 @init:
     nix run github:nix-community/nix-init
 
-[linux]
-[group('nix')]
 @up *inputs:
     nix flake update {{ inputs }} --commit-lock-file
 
-[linux]
-[group('nix')]
 @clean:
     #Wipe out NixOS's history
     sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d
@@ -22,40 +24,26 @@ set positional-arguments
     # Wipe out home-manager's history
     nix profile wipe-history --profile "$XDG_STATE_HOME/nix/profiles/home-manager" --older-than 7d
 
-[linux]
-[group('nix')]
 @gc:
     sudo nix-collect-garbage --delete-older-than 7d
 
     nix-collect-garbage --delete-older-than 7d
 
-[linux]
-[group('nix')]
 repl:
     nix repl -f flake:nixpkgs
 
-[linux]
-[group('nix')]
 @shell *pkgs = "git neovim":
     source scripts/prefix.sh $@
 
-[linux]
-[group('nix')]
 @dev env="dev":
     nix develop .#{{ env }}
 
-[linux]
-[group('nix')]
 @local host="wsl":
    sudo nixos-rebuild switch --flake .#{{ host }} 
 
-[linux]
-[group('nix')]
 @fix:
     nix-store --repair --verify # --check-contents
 
-[linux]
-[group('nix')]
 @facter:
     sudo nix run github:numtide/nixos-facter -- -o facter.json
 
