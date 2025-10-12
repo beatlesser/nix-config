@@ -3,9 +3,8 @@
   lib,
   system,
   host,
-  base-modules,
-  home-modules ? [ ],
-  extra-modules ? [ ],
+  base-modules ? (map lib.relativeRoot [ "modules/base" ]),
+  home-modules ? (map lib.relativeRoot [ "modules/home" ]),
   myvars,
   mylib,
   ...
@@ -15,17 +14,20 @@ let
     nixpkgs
     nixpkgs-stable
     home-manager
+    nur
     nix-index-database
     nix-flatpak
     ;
+
+  inherit (myvars) username;
 
   baseArgs = {
     inherit
       inputs
       system
       host
-      mylib
       myvars
+      mylib
       ;
   };
 
@@ -41,11 +43,18 @@ let
   };
 
   specialArgs = baseArgs // pkgArgs;
+
+  shared-modules = [
+    nur.modules.nixos.default
+    nix-flatpak.nixosModules.nix-flatpak
+    nix-index-database.nixosModules.nix-index
+  ];
 in
 lib.nixosSystem {
   inherit system specialArgs;
   modules =
-    base-modules
+    shared-modules
+    ++ base-modules
     ++ (lib.optionals ((lib.lists.length home-modules) > 0) [
       home-manager.nixosModules.home-manager
       {
@@ -57,8 +66,7 @@ lib.nixosSystem {
           nix-index-database.homeModules.nix-index
           nix-flatpak.homeManagerModules.nix-flatpak
         ];
-        home-manager.users."${myvars.username}".imports = home-modules;
+        home-manager.users."${username}".imports = home-modules;
       }
-    ])
-    ++ extra-modules;
+    ]);
 }
