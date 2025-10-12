@@ -1,13 +1,12 @@
 {
+  sops-nix,
   pkgs,
   config,
-  inputs,
   myvars,
   ...
 }:
 let
   inherit (myvars) username;
-  inherit (inputs) sops-nix;
 in
 {
   imports = [

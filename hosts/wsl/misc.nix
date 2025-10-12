@@ -1,5 +1,5 @@
 {
-  inputs,
+  nixos-wsl,
   host,
   myvars,
   pkgs,
@@ -8,7 +8,6 @@
 }:
 let
   inherit (myvars) username;
-  inherit (inputs) nixos-wsl;
 in
 {
   imports = [ nixos-wsl.nixosModules.wsl ];

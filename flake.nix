@@ -3,9 +3,7 @@
 
   outputs =
     {
-      self,
       nixpkgs,
-      nixpkgs-stable,
       ...
     }@inputs:
     let
@@ -26,7 +24,6 @@
 
       forAllSystems = genAttrs [
         "x86_64-linux"
-        "aarch64-linux"
       ];
 
     in
@@ -73,7 +70,6 @@
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
-
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

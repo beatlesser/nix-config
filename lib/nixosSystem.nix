@@ -3,13 +3,14 @@
   lib,
   system,
   host,
-  base-modules ? (map lib.relativeRoot [ "modules/base" ]),
-  home-modules ? (map lib.relativeRoot [ "modules/home" ]),
+  base-modules,
+  home-modules ? [ ],
   myvars,
   mylib,
   ...
 }:
 let
+  inherit (myvars) username;
   inherit (inputs)
     nixpkgs
     nixpkgs-stable
@@ -19,11 +20,8 @@ let
     nix-flatpak
     ;
 
-  inherit (myvars) username;
-
   baseArgs = {
     inherit
-      inputs
       system
       host
       myvars
@@ -42,7 +40,7 @@ let
     };
   };
 
-  specialArgs = baseArgs // pkgArgs;
+  specialArgs = inputs // baseArgs // pkgArgs;
 
   shared-modules = [
     nur.modules.nixos.default
