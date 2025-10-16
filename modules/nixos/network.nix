@@ -6,7 +6,6 @@
   #networking config
   networking = {
     hostName = "${host}";
-    useNetworkd = true;
     enableIPv6 = true;
     networkmanager = {
       enable = true;
