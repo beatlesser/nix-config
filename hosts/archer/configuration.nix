@@ -11,6 +11,7 @@
 
 {
   boot.loader.efi.efiSysMountPoint = "/efi";
+  boot.loader.systemd-boot.configurationLimit = 3;
 
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;

@@ -14,6 +14,7 @@ in
     users.${username} = {
       isNormalUser = true;
       extraGroups = [
+        "video"
         "networkmanager"
         "wheel"
       ];
