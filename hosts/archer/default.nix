@@ -4,7 +4,7 @@ let
   inherit (mylib) relativeRoot nixosSystem;
 
   system = "x86_64-linux";
-  host = "vm";
+  host = "archer";
 
   base-modules =
     map relativeRoot [
@@ -12,8 +12,8 @@ let
       "modules/nixos"
     ]
     ++ [
+      ./hardware-configuration.nix
       ./optimization.nix
-      ./disko.nix
     ];
 
   home-modules = map relativeRoot [

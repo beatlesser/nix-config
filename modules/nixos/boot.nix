@@ -1,15 +1,14 @@
 { lib, pkgs, ... }:
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
 
     kernelParams = [
       "nowatchdog"
       "modprobe.blacklist=sp5100_tco" # watchdog for AMD
-      "modprobe.blacklist=iTCO_wdt" # watchdog for Intel
     ];
 
-    kernelModules = [ "kvm" ];
+    kernelModules = [ ];
 
     initrd = {
       availableKernelModules = [
@@ -27,7 +26,7 @@
     loader = {
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
+        efiSysMountPoint = "/efi";
       };
       systemd-boot = {
         enable = true;

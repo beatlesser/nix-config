@@ -1,7 +1,7 @@
 {
   services = {
     auto-cpufreq.enable = true; # - 自动优化 CPU 频率和电源管理
-    thermald.enable = true; # - Intel 官方的温控服务，可防止 CPU 过热
+    #thermald.enable = true; # - Intel 官方的温控服务，可防止 CPU 过热
     power-profiles-daemon.enable = true;
     tlp = {
       enable = false;
@@ -28,7 +28,7 @@
   zramSwap = {
     enable = true; # 启用 ZRAM 交换空间（在内存中创建压缩 swap）
     priority = 100; # 设置 ZRAM swap 优先级（高于物理 swap）
-    memoryPercent = 30; # 使用总内存的 30% 作为 ZRAM 交换空间
+    memoryPercent = 100; # 使用总内存的 30% 作为 ZRAM 交换空间
     swapDevices = 1; # 仅创建一个 ZRAM 交换设备
     algorithm = "zstd"; # 使用 `zstd` 压缩算法（高压缩比 & 低 CPU 负担）
   };
