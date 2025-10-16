@@ -1,14 +1,14 @@
 { mylib, ... }@args:
 let
 
-  inherit (mylib) relativeRoot nixosSystem;
+  inherit (mylib) relativeToRoot nixosSystem;
 
   system = "x86_64-linux";
 
   host = "archer";
 
   base-modules =
-    map relativeRoot [
+    map relativeToRoot [
       "modules/base"
       "modules/nixos"
     ]
@@ -18,7 +18,7 @@ let
       ./optimization.nix
     ];
 
-  home-modules = map relativeRoot [
+  home-modules = map relativeToRoot [
     "modules/home"
   ]
   ++
