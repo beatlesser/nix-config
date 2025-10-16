@@ -13,7 +13,7 @@ let
       "modules/nixos"
     ]
     ++ [
-      ./configuraiton.nix
+      ./configuration.nix
       ./hardware-configuration.nix
       ./optimization.nix
     ];
