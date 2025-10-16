@@ -3,13 +3,15 @@
   ...
 }:
 {
-  #enable systemd-networkd to config network
-  systemd.network.enable = true;
   #networking config
   networking = {
     hostName = "${host}";
     useNetworkd = true;
     enableIPv6 = true;
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved"; # one of "default", "dnsmasq", "systemd-resolved", "none"
+    };
     #ntp for sync your time
     timeServers = [
       "ntp.aliyun.com" # Aliyun NTP Server
