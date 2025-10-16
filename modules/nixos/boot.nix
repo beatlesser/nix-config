@@ -26,7 +26,7 @@
     loader = {
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/efi";
+        efiSysMountPoint = lib.mkDefault "/efi";
       };
       systemd-boot = {
         enable = true;
@@ -35,15 +35,5 @@
     };
 
     tmp.cleanOnBoot = true;
-
-    supportedFilesystems = [
-      "ext4"
-      "btrfs"
-      "xfs"
-      "ntfs"
-      "fat"
-      "vfat"
-      "exfat"
-    ];
   };
 }
