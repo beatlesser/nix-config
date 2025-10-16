@@ -18,11 +18,11 @@ let
       ./optimization.nix
     ];
 
-  home-modules = map relativeToRoot [
-    "modules/home"
-  ]
-  ++
-  [./home.nix];
+  home-modules =
+    map relativeToRoot [
+      "modules/home"
+    ]
+    ++ [ ./home.nix ];
 in
 nixosSystem (
   args

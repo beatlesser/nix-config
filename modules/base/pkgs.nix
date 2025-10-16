@@ -6,7 +6,8 @@
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
-  	cliphist
-	wl-clipboard
+    just
+    cliphist
+    wl-clipboard
   ];
 }
