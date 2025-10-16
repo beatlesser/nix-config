@@ -4,6 +4,9 @@ let
 in
 {
   programs = {
+    kitty = {
+      enable = true;
+    };
 
     #shell
     fish = {
