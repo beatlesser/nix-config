@@ -9,8 +9,8 @@ let
 
   base-modules =
     map relativeToRoot [
-      "modules/base"
-      "modules/nixos"
+      "common/base"
+      "common/nixos"
     ]
     ++ [
       ./configuration.nix
@@ -20,7 +20,7 @@ let
 
   home-modules =
     map relativeToRoot [
-      "modules/home"
+      "home"
     ]
     ++ [ ./home.nix ];
 in
