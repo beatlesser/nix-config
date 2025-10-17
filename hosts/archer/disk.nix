@@ -9,6 +9,7 @@
       type = "gpt";
       partitions = {
         ESP = {
+	  label = "efi";
           type = "EF00";
           size = "512M";
           content = {
@@ -25,31 +26,34 @@
           size = "100%";
           content = {
             type = "btrfs";
+	    extraArgs = [ "-L" "nixos" "-f" ];
             subvolumes = {
-              "/@" = {
+              "@" = {
                 mountpoint = "/";
                 mountOptions = [
                   "compress=zstd"
+                  "noatime"
                 ];
               };
-              "/@home" = {
+              "@home" = {
                 mountpoint = "/home";
                 mountOptions = [
                   "compress=zstd"
+                  "noatime"
                 ];
               };
-              "/@nix" = {
+              "@nix" = {
                 mountpoint = "/nix";
                 mountOptions = [
                   "compress=zstd"
                   "noatime"
                 ];
               };
-              "/@swap" = {
+              "@swap" = {
                 mountpoint = "/swap";
                 mountOptions = [
-                  "subvol=@swap"
                   "compress=zstd"
+                  "noatime"
                 ];
                 swap = {
                   swapfile.size = "4G";
