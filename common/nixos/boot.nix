@@ -1,11 +1,6 @@
 { lib, pkgs, ... }:
 {
   boot = {
-    kernelParams = [
-      "nowatchdog"
-      "modprobe.blacklist=sp5100_tco" # watchdog for AMD
-    ];
-
     initrd = {
       availableKernelModules = [
         "xhci_pci"

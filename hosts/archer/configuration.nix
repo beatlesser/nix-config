@@ -11,6 +11,11 @@
 
     kernelPackages = pkgs.linuxPackages_zen;
 
+    kernelParams = [
+      "nowatchdog"
+      "modprobe.blacklist=sp5100_tco" # watchdog for AMD
+    ];
+
     kernelModules = [ ];
   };
 
