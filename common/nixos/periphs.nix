@@ -26,7 +26,7 @@
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   # Disable pulseaudio, it conflicts with pipewire too.
-  services.pulseaudio.enable = false;
+  #services.pulseaudio.enable = true;
 
   #============================= Bluetooth =============================
 
@@ -58,6 +58,8 @@
       # openocd # required by paltformio, see https://github.com/NixOS/nixpkgs/issues/224895
       # openfpgaloader
     ];
+
+    udiskie.enable = true;
 
     # A key remapping daemon for linux.
     # https://github.com/rvaiya/keyd

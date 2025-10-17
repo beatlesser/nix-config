@@ -1,6 +1,7 @@
 {
   host,
   myvars,
+  lib,
   ...
 }:
 {
@@ -8,6 +9,7 @@
   networking = {
     hostName = "${host}";
     enableIPv6 = true;
+    useDHCP = true;
     networkmanager = {
       enable = true;
       dns = "systemd-resolved"; # one of "default", "dnsmasq", "systemd-resolved", "none"

@@ -13,8 +13,9 @@ let
       "common/nixos"
     ]
     ++ [
-      ./configuration.nix
-      ./hardware-configuration.nix
+      ./config.nix
+      ./disk.nix
+      #	./hardware-configuration.nix
       ./optimization.nix
     ];
 
