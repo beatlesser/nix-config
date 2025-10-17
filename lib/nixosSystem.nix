@@ -47,7 +47,6 @@ let
     nur.modules.nixos.default
     nix-flatpak.nixosModules.nix-flatpak
     nix-index-database.nixosModules.nix-index
-    disko.nixosModules.disko
   ];
 
 in
