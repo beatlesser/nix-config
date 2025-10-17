@@ -38,7 +38,7 @@ repl:
 @dev env="dev":
     nix develop .#{{ env }}
 
-@local host="archer":
+@local host="nixer":
    sudo nixos-rebuild switch --flake .#{{ host }} 
 
 @fix:
