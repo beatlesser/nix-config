@@ -28,23 +28,32 @@
             subvolumes = {
               "@" = {
                 mountpoint = "/";
-                mountOptions = [ "subvol=@" "compress=zstd" ];
+                mountOptions = [
+                  "subvol=@"
+                  "compress=zstd"
+                ];
               };
               "@home" = {
                 mountpoint = "/home";
-                mountOptions = [ "subvol=@home" "compress=zstd" ];
+                mountOptions = [
+                  "subvol=@home"
+                  "compress=zstd"
+                ];
               };
               "@nix" = {
                 mountpoint = "/nix";
                 mountOptions = [
-		  "subvol=@nix"
+                  "subvol=@nix"
                   "compress=zstd"
                   "noatime"
                 ];
               };
               "@swap" = {
                 mountpoint = "/swap";
-                mountOptions = [ "subvol=@swap" "compress=zstd" ];
+                mountOptions = [
+                  "subvol=@swap"
+                  "compress=zstd"
+                ];
                 swap = {
                   swapfile.size = "4G";
                 };
