@@ -9,7 +9,7 @@
   networking = {
     hostName = "${host}";
     enableIPv6 = true;
-    useDHCP = true;
+    useDHCP = lib.mkDefault true;
     networkmanager = {
       enable = true;
       dns = "systemd-resolved"; # one of "default", "dnsmasq", "systemd-resolved", "none"
