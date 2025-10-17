@@ -1,7 +1,7 @@
-{ mylib, myvars, ... }:
+{ mylib, ... }:
 let
   inherit (mylib) mkImports;
 in
 {
-  imports = mylib.mkImports ./.;
+  imports = mkImports ./.;
 }
