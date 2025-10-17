@@ -9,7 +9,7 @@
       type = "gpt";
       partitions = {
         ESP = {
-	  label = "efi";
+          label = "efi";
           type = "EF00";
           size = "512M";
           content = {
@@ -26,7 +26,11 @@
           size = "100%";
           content = {
             type = "btrfs";
-	    extraArgs = [ "-L" "nixos" "-f" ];
+            extraArgs = [
+              "-L"
+              "nixos"
+              "-f"
+            ];
             subvolumes = {
               "@" = {
                 mountpoint = "/";
