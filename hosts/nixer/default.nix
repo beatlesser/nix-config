@@ -5,7 +5,7 @@ let
 
   system = "x86_64-linux";
 
-  host = "archer";
+  host = "nixer";
 
   base-modules =
     map relativeToRoot [
