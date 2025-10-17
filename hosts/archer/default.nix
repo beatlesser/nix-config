@@ -11,6 +11,7 @@ let
     map relativeToRoot [
       "common/base"
       "common/nixos"
+      "secrets"
     ]
     ++ [
       ./config.nix

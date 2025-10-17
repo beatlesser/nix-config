@@ -1,5 +1,4 @@
 {
-  sops-nix,
   pkgs,
   config,
   myvars,
@@ -9,10 +8,6 @@ let
   inherit (myvars) username;
 in
 {
-  imports = [
-    sops-nix.nixosModules.sops
-  ];
-
   environment.systemPackages = with pkgs; [
     sops
   ];

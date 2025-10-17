@@ -11,8 +11,8 @@ set positional-arguments
 @install-remote target ip:
     nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- -i ~/.ssh/id_ed25519 --flake .#{{ target }} root@{{ ip }}
 
-@init:
-    nix run github:nix-community/nix-init
+@fmt:
+    sudo nix fmt 
 
 @up *inputs:
     nix flake update {{ inputs }} --commit-lock-file
@@ -38,7 +38,7 @@ repl:
 @dev env="dev":
     nix develop .#{{ env }}
 
-@local host="wsl":
+@local host="archer":
    sudo nixos-rebuild switch --flake .#{{ host }} 
 
 @fix:
