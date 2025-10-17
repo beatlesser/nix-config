@@ -59,8 +59,6 @@
       # openfpgaloader
     ];
 
-    udiskie.enable = true;
-
     # A key remapping daemon for linux.
     # https://github.com/rvaiya/keyd
     keyd = {
