@@ -26,22 +26,22 @@
           content = {
             type = "btrfs";
             subvolumes = {
-              "/@" = {
+              "@" = {
                 mountpoint = "/";
                 mountOptions = [ "compress=zstd" ];
               };
-              "/@home" = {
+              "@home" = {
                 mountpoint = "/home";
                 mountOptions = [ "compress=zstd" ];
               };
-              "/@nix" = {
+              "@nix" = {
                 mountpoint = "/nix";
                 mountOptions = [
                   "compress=zstd"
                   "noatime"
                 ];
               };
-              "/@swap" = {
+              "@swap" = {
                 mountpoint = "/swap";
                 mountOptions = [ "compress=zstd" ];
                 swap = {
