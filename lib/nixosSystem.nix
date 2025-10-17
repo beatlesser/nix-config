@@ -16,6 +16,7 @@ let
     nixpkgs
     nixpkgs-stable
     home-manager
+    disko
     nur
     nix-index-database
     nix-flatpak
@@ -47,6 +48,7 @@ let
     nur.modules.nixos.default
     nix-flatpak.nixosModules.nix-flatpak
     nix-index-database.nixosModules.nix-index
+    disko.nixosModules.default
   ];
 
 in

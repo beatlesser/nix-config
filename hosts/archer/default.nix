@@ -14,7 +14,7 @@ let
     ]
     ++ [
       ./config.nix
-      ./hardware-configuration.nix
+      ./disk.nix
       ./optimization.nix
     ];
 
