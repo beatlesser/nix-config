@@ -7,11 +7,11 @@
 }:
 {
   boot = {
-     loader.efi.efiSysMountPoint = "/efi";
+    loader.efi.efiSysMountPoint = "/efi";
 
-     kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_zen;
 
-     kernelModules = [];
+    kernelModules = [ ];
   };
 
   services.displayManager.sddm.enable = true;
