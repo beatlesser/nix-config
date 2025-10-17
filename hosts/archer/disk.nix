@@ -4,6 +4,7 @@
   imports = [ disko.nixosModules.disko ];
 
   disko.devices.disk.main = {
+    type = "disk";
     device = "/dev/nvme0n1";
     content = {
       type = "gpt";
@@ -32,28 +33,28 @@
               "-f"
             ];
             subvolumes = {
-              "@" = {
+              "/" = {
                 mountpoint = "/";
                 mountOptions = [
                   "compress=zstd"
                   "noatime"
                 ];
               };
-              "@home" = {
+              "/home" = {
                 mountpoint = "/home";
                 mountOptions = [
                   "compress=zstd"
                   "noatime"
                 ];
               };
-              "@nix" = {
+              "/nix" = {
                 mountpoint = "/nix";
                 mountOptions = [
                   "compress=zstd"
                   "noatime"
                 ];
               };
-              "@swap" = {
+              "/swap" = {
                 mountpoint = "/swap";
                 mountOptions = [
                   "compress=zstd"
