@@ -26,7 +26,7 @@
       systemd-boot = {
         enable = lib.mkDefault true;
 	editor = false;
-	configuraitonLimt = lib.mkDefault 3;
+	configurationLimit = lib.mkDefault 3;
       };
     };
 
