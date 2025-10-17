@@ -10,6 +10,8 @@ in
 {
   environment.systemPackages = with pkgs; [
     sops
+    age
+    ssh-to-age
   ];
 
   # This will add secrets.yml to the nix store
@@ -25,4 +27,14 @@ in
   sops.age.generateKey = true;
 
   # This is the actual specification of the secrets.
+  sops.secrets."subscriptions/owo" = {
+    owner = "root";
+    mode = "0600";
+  };
+
+  sops.secrets."cyer/pwd" = {
+    neededForUsers = true;
+    owner = "${username}";
+    mode = "0600";
+  };
 }

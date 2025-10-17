@@ -11,10 +11,12 @@ let
     map relativeToRoot [
       "common/base"
       "common/nixos"
+      "common/services"
       "secrets"
     ]
     ++ [
       ./config.nix
+      ./boot.nix
       ./disk.nix
       ./optimization.nix
     ];

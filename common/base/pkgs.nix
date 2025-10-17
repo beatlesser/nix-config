@@ -7,7 +7,5 @@
 
   environment.systemPackages = with pkgs; [
     just
-    cliphist
-    wl-clipboard
   ];
 }

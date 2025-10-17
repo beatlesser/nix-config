@@ -2,6 +2,7 @@
   host,
   myvars,
   lib,
+  config,
   ...
 }:
 {
@@ -54,9 +55,4 @@
       DNSStubListener=yes
     '';
   };
-  services.dae = {
-    enable = true;
-    configFile = "/home/${myvars.username}/Desktop/config.dae";
-  };
-
 }
