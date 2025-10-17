@@ -4,5 +4,4 @@ let
 in
 {
   imports = mkImports ./.;
-
 }
