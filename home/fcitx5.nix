@@ -21,6 +21,19 @@
         catppuccin-fcitx5 # fcitx5-theme
       ];
       settings = {
+        addons = {
+	  classicui.globalSection.Theme = "Catppuccin Mocha Blue";
+	  classicui.globalSection.DarkTheme = "Catppuccin Mocha Blue";
+
+	  pinyin.globalSection = {
+	    PageSize = 9;
+	    CloudPinyinEnabled = "True";
+	    CloudPinyinIndex = 2;
+	  };
+	    cloudpinyin.globalSection = {
+	      Backend = "Baidu";
+	    };
+	};
         inputMethod = {
           GroupOrder."0" = "Default";
           "Groups/0" = {
