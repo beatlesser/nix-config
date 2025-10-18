@@ -22,17 +22,21 @@
       ];
       settings = {
         addons = {
-          classicui.globalSection.Theme = "Catppuccin Mocha Blue";
-          classicui.globalSection.DarkTheme = "Catppuccin Mocha Blue";
+
+          classicui.globalSection.Theme = "catppuccin-mocha-blue";
+
+          classicui.globalSection.DarkTheme = "catppuccin-mocha-blue";
 
           pinyin.globalSection = {
             PageSize = 9;
             CloudPinyinEnabled = "True";
             CloudPinyinIndex = 2;
           };
+
           cloudpinyin.globalSection = {
             Backend = "Baidu";
           };
+
         };
         inputMethod = {
           GroupOrder."0" = "Default";
