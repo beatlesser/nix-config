@@ -22,13 +22,13 @@
         fcitx5-gtk # gtk im module
 
         (catppuccin-fcitx5.override {
-           withRoundedCorners = true;
-	}) # fcitx5-theme
+          withRoundedCorners = true;
+        }) # fcitx5-theme
       ];
       settings = {
         addons = {
-	  classicui.globalSection.Theme = "catppuccin-mocha-blue";
-	  classicui.globalSection.DarkTheme = "catppuccin-mocha-blue";
+          classicui.globalSection.Theme = "catppuccin-mocha-blue";
+          classicui.globalSection.DarkTheme = "catppuccin-mocha-blue";
           pinyin.globalSection = {
             PageSize = 9;
             CloudPinyinEnabled = "True";
