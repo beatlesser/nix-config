@@ -72,6 +72,7 @@
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     hyprland.url = "github:hyprwm/Hyprland";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     impermanence.url = "github:nix-community/impermanence";
