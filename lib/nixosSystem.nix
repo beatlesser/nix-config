@@ -21,6 +21,7 @@ let
     nur
     nix-index-database
     nix-flatpak
+    lanzaboote
     ;
 
   baseArgs = {
@@ -51,6 +52,7 @@ let
     nix-index-database.nixosModules.nix-index
     disko.nixosModules.default
     sops-nix.nixosModules.default
+    lanzaboote.nixosModules.lanzaboote
   ];
 
 in

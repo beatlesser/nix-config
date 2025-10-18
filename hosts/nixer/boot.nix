@@ -1,11 +1,31 @@
-{ pkgs, modulesPath, ... }:
+{
+  pkgs,
+  lib,
+  modulesPath,
+  ...
+}:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  environment.systemPackages = [
+    # For debugging and troubleshooting Secure Boot.
+    pkgs.sbctl
+  ];
+
   boot = {
-    loader.efi.efiSysMountPoint = "/efi";
+
+    loader = {
+      efi.efiSysMountPoint = "/efi";
+      #conflict with secureboot, so we disable it
+      systemd-boot.enable = lib.mkForce false;
+    };
+
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+    };
 
     kernelPackages = pkgs.linuxPackages_zen;
 
