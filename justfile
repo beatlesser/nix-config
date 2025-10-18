@@ -4,15 +4,11 @@ set positional-arguments
     just --list
 
 @install target:
-    nix --experimental-features "nix-command flakes" run github:nix-community/disko -- -m disko -f .#{{ target }}
-    mkdir -p /mnt/var/lib/sops-nix
+    nix --experimental-features "nix-command flakes" run github:nix-community/disko -- -m disko -f .#{{ target }} --option substituters "https://mirrors.ustc.edu.cn"
     nixos-install --flake .#{{ target }}
 
 @install-remote target ip:
     nix --experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- -i ~/.ssh/id_ed25519 --flake .#{{ target }} root@{{ ip }}
-
-@fmt:
-    sudo nix fmt 
 
 @up *inputs:
     nix flake update {{ inputs }} --commit-lock-file
@@ -38,7 +34,7 @@ repl:
 @dev env="dev":
     nix develop .#{{ env }}
 
-@local host="nixer":
+@switch host="nixer":
    sudo nixos-rebuild switch --flake .#{{ host }} 
 
 @fix:
