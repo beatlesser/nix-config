@@ -14,19 +14,21 @@
             rime-wanxiang
           ];
         })
+
         # needed enable rime using configtool after installed
         fcitx5-configtool
+
         # fcitx5-chinese-addons # we use rime instead
         fcitx5-gtk # gtk im module
-        catppuccin-fcitx5 # fcitx5-theme
+
+        (catppuccin-fcitx5.override {
+           withRoundedCorners = true;
+	}) # fcitx5-theme
       ];
       settings = {
         addons = {
-
-          classicui.globalSection.Theme = "catppuccin-mocha-blue";
-
-          classicui.globalSection.DarkTheme = "catppuccin-mocha-blue";
-
+	  classicui.globalSection.Theme = "catppuccin-mocha-blue";
+	  classicui.globalSection.DarkTheme = "catppuccin-mocha-blue";
           pinyin.globalSection = {
             PageSize = 9;
             CloudPinyinEnabled = "True";
