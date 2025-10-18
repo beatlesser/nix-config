@@ -48,7 +48,7 @@
       "com.qq.QQ"
     ];
     overrides = {
-      
+
     };
   };
 }
