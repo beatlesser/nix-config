@@ -23,8 +23,8 @@
     };
 
     #lanzaboote = {
-    #  enable = true;
-    #  pkiBundle = "/var/lib/sbctl";
+      #enable = true;
+      #pkiBundle = "/var/lib/sbctl";
     #};
 
     kernelPackages = pkgs.linuxPackages_zen;
