@@ -19,13 +19,13 @@
     loader = {
       efi.efiSysMountPoint = "/efi";
       #conflict with secureboot, so we disable it
-      systemd-boot.enable = lib.mkForce false;
+      #systemd-boot.enable = lib.mkForce false;
     };
 
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/var/lib/sbctl";
-    };
+    #lanzaboote = {
+    #  enable = true;
+    #  pkiBundle = "/var/lib/sbctl";
+    #};
 
     kernelPackages = pkgs.linuxPackages_zen;
 

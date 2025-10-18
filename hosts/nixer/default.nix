@@ -9,10 +9,10 @@ let
 
   base-modules =
     map relativeToRoot [
+      "secrets"
       "common/base"
       "common/nixos"
       "common/services"
-      "secrets"
     ]
     ++ [
       ./config.nix
