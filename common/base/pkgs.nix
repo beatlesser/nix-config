@@ -1,9 +1,9 @@
-{ stable,system, ... }:
+{ stable, system, ... }:
 {
   nixpkgs = {
     config.allowUnfree = true;
     config.allowBroken = true;
-    hostPlatform = "${system}"; 
+    hostPlatform = "${system}";
   };
 
   #add some cross-host pkgs and programs here

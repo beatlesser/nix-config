@@ -39,7 +39,7 @@
           ];
           editor = [
             "nvim.desktop"
-	    ];
+          ];
         in
         {
           "application/json" = browser;

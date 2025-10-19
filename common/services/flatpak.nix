@@ -1,7 +1,5 @@
 {
   lib,
-  pkgs,
-  config,
   username,
   ...
 }:
@@ -41,8 +39,6 @@
     };
     packages = [
       # { appId = "com.brave.Browser"; origin = "flathub"; }
-      # "com.obsproject.Studio"
-      # "im.riot.Riot"
       "com.qq.QQmusic"
       "com.tencent.WeChat"
       "com.qq.QQ"
