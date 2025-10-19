@@ -10,13 +10,11 @@
         (fcitx5-rime.override {
           rimeDataPkgs = [
             rime-ice
-            rime-moegirl
-            rime-wanxiang
           ];
         })
         fcitx5-configtool
         fcitx5-gtk
-        kdePackages.fcitx5-qt
+        #kdePackages.fcitx5-qt
 
         (catppuccin-fcitx5.override {
           withRoundedCorners = true;
@@ -29,7 +27,6 @@
           classicui.globalSection.DarkTheme = "catppuccin-mocha-blue";
         };
         inputMethod = {
-          GroupOrder."0" = "Default";
           "Groups/0" = {
             Name = "Default";
             "Default Layout" = "us";
@@ -37,6 +34,7 @@
           };
           "Groups/0/Items/0".Name = "keyboard-us";
           "Groups/0/Items/1".Name = "rime";
+          GroupOrder."0" = "Default";
         };
       };
     };
