@@ -15,12 +15,6 @@
   ];
 
   boot = {
-
-    plymouth = {
-      enable = true;
-      theme = "breeze";
-    };
-
     loader = {
       efi.efiSysMountPoint = "/efi";
       #conflict with secureboot, so we disable it
