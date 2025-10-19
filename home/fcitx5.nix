@@ -8,7 +8,9 @@
       addons = with pkgs; [
         fcitx5-gtk # Fcitx5 gtk im module and glib based dbus client library
         #kdePackages.fcitx5-qt
-        catppuccin-fcitx5
+        (catppuccin-fcitx5.override {
+	  withRoundedCorners = true;
+	})
         (fcitx5-rime.override {
           rimeDataPkgs = [
             rime-ice
