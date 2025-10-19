@@ -1,5 +1,5 @@
 {
-  stable,
+  pkgs,
   lib,
   modulesPath,
   ...
@@ -9,7 +9,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  environment.systemPackages = with stable; [
+  environment.systemPackages = with pkgs; [
     # For debugging and troubleshooting Secure Boot.
     sbctl
   ];
@@ -32,7 +32,7 @@
       pkiBundle = "/var/lib/sbctl";
     };
 
-    kernelPackages = stable.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_zen;
 
     kernelParams = [
       "nowatchdog"

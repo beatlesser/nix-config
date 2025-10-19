@@ -10,7 +10,7 @@
         #kdePackages.fcitx5-qt
         catppuccin-fcitx5
         (fcitx5-rime.override {
-          RimeDataPkgs = [
+          rimeDataPkgs = [
             rime-ice
             rime-wanxiang
           ];
