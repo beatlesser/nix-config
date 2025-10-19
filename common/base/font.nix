@@ -1,10 +1,10 @@
-{ stable, ... }:
+{ pkgs, ... }:
 {
   fonts = {
     enableDefaultPackages = false;
     fontDir.enable = true;
 
-    packages = with stable; [
+    packages = with pkgs; [
       # icon fonts
       material-design-icons
       font-awesome
@@ -78,7 +78,7 @@
     # It supports a richer feature set than the standard linux console VT,
     # including full unicode support, and when the video card supports drm should be much faster.
     enable = true;
-    fonts = with stable; [
+    fonts = with pkgs; [
       {
         name = "Maple Mono NF CN";
         package = maple-mono.NF-CN-unhinted;

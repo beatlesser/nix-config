@@ -1,4 +1,4 @@
-{ stable, system, ... }:
+{ pkgs, system, ... }:
 {
   nixpkgs = {
     config.allowUnfree = true;
@@ -11,7 +11,7 @@
 
   programs.firefox.enable = true;
 
-  environment.systemPackages = with stable; [
+  environment.systemPackages = with pkgs; [
     just
   ];
 }

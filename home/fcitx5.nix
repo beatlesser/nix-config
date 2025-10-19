@@ -1,22 +1,17 @@
-{ unstable, ... }:
+{ pkgs, ... }:
 {
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
     fcitx5 = {
       waylandFrontend = true;
-      addons = with unstable; [
+      addons = with pkgs; [
         fcitx5-gtk # Fcitx5 gtk im module and glib based dbus client library
-        kdePackages.fcitx5-qt
-
-        (catppuccin-fcitx5.override {
-          withRoundedCorners = true;
-        }) # fcitx5-theme
-
+        #kdePackages.fcitx5-qt
+        catppuccin-fcitx5
         (fcitx5-rime.override {
-          rimeDataPkgs = [
+          RimeDataPkgs = [
             rime-ice
-            rime-moegirl
             rime-wanxiang
           ];
         })

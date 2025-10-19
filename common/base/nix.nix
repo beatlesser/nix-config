@@ -1,5 +1,5 @@
 {
-  stable,
+  pkgs,
   nixpkgs,
   myvars,
   ...
@@ -9,7 +9,7 @@ let
 in
 {
   nix = {
-    package = stable.lix;
+    package = pkgs.lix;
     nixPath = [ "nixpkgs=${nixpkgs}" ];
     gc = {
       automatic = true;

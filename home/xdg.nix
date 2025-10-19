@@ -4,11 +4,11 @@
 #   https://www.freedesktop.org/wiki/Specifications/
 {
   config,
-  unstable,
+  pkgs,
   ...
 }:
 {
-  home.packages = with unstable; [
+  home.packages = with pkgs; [
     xdg-utils # provides cli tools such as `xdg-mime` `xdg-open`
     xdg-user-dirs
   ];
