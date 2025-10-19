@@ -1,6 +1,6 @@
 {
   config,
-  pkgs,
+  stable,
   myvars,
   ...
 }:
@@ -10,7 +10,7 @@ in
 {
   users = {
     mutableUsers = true;
-    defaultUserShell = pkgs.${shell};
+    defaultUserShell = stable.${shell};
     users.${username} = {
       #hashedPasswordFile = config.sops.secrets."cyer/pwd".path;
       isNormalUser = true;

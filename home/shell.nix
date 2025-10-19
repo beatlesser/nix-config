@@ -1,4 +1,4 @@
-{ pkgs, myvars, ... }:
+{ unstable, myvars, ... }:
 let
   inherit (myvars) username email;
 in
@@ -65,7 +65,7 @@ in
     };
   };
   #if programs do not support,add pkgs manual
-  home.packages = with pkgs; [
+  home.packages = with unstable; [
     duf
   ];
 }

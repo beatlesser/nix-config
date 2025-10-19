@@ -4,11 +4,11 @@
 #   https://www.freedesktop.org/wiki/Specifications/
 {
   config,
-  pkgs,
+  unstable,
   ...
 }:
 {
-  home.packages = with pkgs; [
+  home.packages = with unstable; [
     xdg-utils # provides cli tools such as `xdg-mime` `xdg-open`
     xdg-user-dirs
   ];
@@ -35,15 +35,11 @@
       defaultApplications =
         let
           browser = [
-            "google-chrome.desktop"
             "firefox.desktop"
           ];
           editor = [
             "nvim.desktop"
-            "Helix.desktop"
-            "code.desktop"
-            "code-insiders.desktop"
-          ];
+	    ];
         in
         {
           "application/json" = browser;

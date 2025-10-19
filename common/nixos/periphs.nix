@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ stable, ... }:
 {
   #============================= Audio(PipeWire) =======================
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with stable; [
     pulseaudio # provides `pactl`, which is required by some apps(e.g. sonic-pi)
   ];
 
@@ -51,7 +51,7 @@
     printing.enable = true; # Enable CUPS to print documents.
     geoclue2.enable = true; # Enable geolocation services.
 
-    udev.packages = with pkgs; [
+    udev.packages = with stable; [
       gnome-settings-daemon
       android-udev-rules # required by adb
       # platformio # udev rules for platformio

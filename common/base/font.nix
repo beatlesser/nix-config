@@ -1,39 +1,23 @@
-{ pkgs, ... }:
+{ stable, ... }:
 {
-  # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
   fonts = {
-    # use fonts specified by user rather than default ones
     enableDefaultPackages = false;
     fontDir.enable = true;
 
-    # fonts are defined in /modules/base/fonts.nix, used by both NixOS & Darwin.
-    # packages = [ ... ];
-    packages = with pkgs; [
+    packages = with stable; [
       # icon fonts
       material-design-icons
       font-awesome
-
-      # nerdfonts
-      # https://github.com/NixOS/nixpkgs/blob/nixos-unstable-small/pkgs/data/fonts/nerd-fonts/manifests/fonts.json
+      #nerd font
       nerd-fonts.symbols-only # symbols icon only
       nerd-fonts.jetbrains-mono
 
-      # Noto 是 Google 开发的开源字体家族
-      # 名字的含义是「没有豆腐」（no tofu），因为缺字时显示的方框或者方框被叫作 tofu
-      #
-      # Noto 系列字族只支持西文，命名规则是 Noto + Sans 或 Serif + 文字名称。
       noto-fonts # 大部分文字的常见样式，不包含汉字
       noto-fonts-color-emoji # 彩色的表情符号字体
-      # Noto CJK 为「思源」系列汉字字体，由 Adobe + Google 共同开发
-      # Google 以 Noto Sans/Serif CJK SC/TC/HK/JP/KR 的名称发布该系列字体。
-      # 这俩跟 noto-fonts-cjk-sans/serif 实际为同一字体，只是分别由 Adobe/Google 以自己的品牌名发布
-      # noto-fonts-cjk-sans # 思源黑体
-      # noto-fonts-cjk-serif # 思源宋体
 
       # Adobe 以 Source Han Sans/Serif 的名称发布此系列字体
       source-sans # 无衬线字体，不含汉字。字族名叫 Source Sans 3，以及带字重的变体（VF）
       source-serif # 衬线字体，不含汉字。字族名叫 Source Serif 4，以及带字重的变体
-      # Source Hans 系列汉字字体由 Adobe + Google 共同开发
       source-han-sans # 思源黑体
       source-han-serif # 思源宋体
       source-han-mono # 思源等宽
@@ -94,7 +78,7 @@
     # It supports a richer feature set than the standard linux console VT,
     # including full unicode support, and when the video card supports drm should be much faster.
     enable = true;
-    fonts = with pkgs; [
+    fonts = with stable; [
       {
         name = "Maple Mono NF CN";
         package = maple-mono.NF-CN-unhinted;

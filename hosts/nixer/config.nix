@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 {
-  pkgs,
+  stable,
   config,
   ...
 }:
@@ -10,6 +10,7 @@
 
   programs.hyprland.enable = true;
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   documentation = {
@@ -18,8 +19,6 @@
   };
 
   programs.nix-ld.enable = true;
-
-  nixpkgs.hostPlatform = "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = config.hardware.enableRedistributableFirmware;
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?

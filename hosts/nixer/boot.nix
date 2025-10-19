@@ -1,5 +1,5 @@
 {
-  pkgs,
+  stable,
   lib,
   modulesPath,
   ...
@@ -9,16 +9,16 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  environment.systemPackages = [
+  environment.systemPackages = with stable; [
     # For debugging and troubleshooting Secure Boot.
-    pkgs.sbctl
+    sbctl
   ];
 
   boot = {
 
-    plymouth = { 
-    enable = true; 
-    theme = "breeze";
+    plymouth = {
+      enable = true;
+      theme = "breeze";
     };
 
     loader = {
@@ -32,7 +32,7 @@
       pkiBundle = "/var/lib/sbctl";
     };
 
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = stable.linuxPackages_zen;
 
     kernelParams = [
       "nowatchdog"
