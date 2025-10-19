@@ -1,14 +1,14 @@
 { mylib, ... }@args:
 let
 
-  inherit (mylib) relativeToRoot nixosSystem;
+  inherit (mylib) mapToRoot nixosSystem;
 
   system = "x86_64-linux";
 
   host = "nixer";
 
   base-modules =
-    map relativeToRoot [
+    mapToRoot [
       "secrets"
       "common/base"
       "common/nixos"
@@ -22,14 +22,8 @@ let
     ];
 
   home-modules =
-    map relativeToRoot [
-      "home/xdg.nix"
-      "home/starship.nix"
-      "home/shell.nix"
-      "home/clip.nix"
-      "home/git.nix"
-      "home/neovim.nix"
-      "home/fcitx5.nix"
+    mapToRoot [
+      "home"
     ]
     ++ [ ./home.nix ];
 in

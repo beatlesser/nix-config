@@ -11,6 +11,7 @@ in
 {
   #helper func
   relativeToRoot = path.append ../.;
+  mapToRoot = map (path.append ../.);
 
   mkImports =
     dir:

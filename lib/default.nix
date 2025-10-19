@@ -5,7 +5,7 @@ let
 in
 {
 
-  inherit (helper) relativeToRoot mkImports;
+  inherit (helper) mapToRoot relativeToRoot mkImports;
 
   inherit nixosSystem;
 
