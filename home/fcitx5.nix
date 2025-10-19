@@ -12,7 +12,7 @@
         (catppuccin-fcitx5.override {
           withRoundedCorners = true;
         }) # fcitx5-theme
-	
+
         (fcitx5-rime.override {
           rimeDataPkgs = [
             rime-ice
