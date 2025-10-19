@@ -11,26 +11,27 @@ let
     ;
 in
 {
-  # Set your time zone.
-  time.timeZone = "${timeZone}";
-  # Sync hc to local time
-  time.hardwareClockInLocalTime = true;
-  # Select internationalisation properties.
-  i18n.defaultLocale = "${defaultLocale}";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "${extraLocale}";
-    LC_IDENTIFICATION = "${extraLocale}";
-    LC_MEASUREMENT = "${extraLocale}";
-    LC_MONETARY = "${extraLocale}";
-    LC_NAME = "${extraLocale}";
-    LC_NUMERIC = "${extraLocale}";
-    LC_PAPER = "${extraLocale}";
-    LC_TELEPHONE = "${extraLocale}";
-    LC_TIME = "${extraLocale}";
+  time = {
+    timeZone = "${timeZone}";
+    hardwareClockInLocalTime = true;
   };
-  supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-    "zh_CN.UTF-8/UTF-8"
-  ];
+  i18n = {
+    defaultLocale = "${defaultLocale}";
+
+    extraLocaleSettings = {
+      LC_ADDRESS = "${extraLocale}";
+      LC_IDENTIFICATION = "${extraLocale}";
+      LC_MEASUREMENT = "${extraLocale}";
+      LC_MONETARY = "${extraLocale}";
+      LC_NAME = "${extraLocale}";
+      LC_NUMERIC = "${extraLocale}";
+      LC_PAPER = "${extraLocale}";
+      LC_TELEPHONE = "${extraLocale}";
+      LC_TIME = "${extraLocale}";
+    };
+    supportedLocales = [
+      "en_US.UTF-8/UTF-8"
+      "zh_CN.UTF-8/UTF-8"
+    ];
+  };
 }
