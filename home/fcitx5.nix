@@ -6,7 +6,13 @@
     fcitx5 = {
       waylandFrontend = true;
       addons = with unstable; [
+        fcitx5-gtk # Fcitx5 gtk im module and glib based dbus client library
+        kdePackages.fcitx5-qt
 
+        (catppuccin-fcitx5.override {
+          withRoundedCorners = true;
+        }) # fcitx5-theme
+	
         (fcitx5-rime.override {
           rimeDataPkgs = [
             rime-ice
@@ -14,15 +20,6 @@
             rime-wanxiang
           ];
         })
-
-        fcitx5-configtool
-        fcitx5-gtk
-        #kdePackages.fcitx5-qt
-
-        (catppuccin-fcitx5.override {
-          withRoundedCorners = true;
-        }) # fcitx5-theme
-
       ];
       settings = {
         addons = {
