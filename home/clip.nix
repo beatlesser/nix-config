@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ unstable, ... }:
 {
   services.cliphist = {
     enable = true;
-    #clipboardPackage = pkgs.wl-clipboard-rs;
+    #clipboardPackage = unstable.wl-clipboard-rs;
   };
   #services.wl-clip-persist.enable = true;
 }
