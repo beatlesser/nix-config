@@ -1,5 +1,5 @@
 {
-  pkgs,
+  stable,
   nixpkgs,
   myvars,
   ...
@@ -9,7 +9,7 @@ let
 in
 {
   nix = {
-    package = pkgs.lix;
+    package = stable.lix;
     nixPath = [ "nixpkgs=${nixpkgs}" ];
     gc = {
       automatic = true;
@@ -30,7 +30,7 @@ in
       experimental-features = "nix-command flakes";
       keep-going = true;
       warn-dirty = false;
-      http-connections = 16;
+      http-connections = 20;
 
       substituters = [
         "https://hyprland.cachix.org"
