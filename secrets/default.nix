@@ -28,13 +28,11 @@ in
 
   # This is the actual specification of the secrets.
   sops.secrets."subscriptions/owo" = {
-    restartUnits = [ "dae" ];
     owner = "root";
     mode = "0600";
   };
 
   sops.secrets."subscriptions/wow" = {
-    restartUnits = [ "dae" ];
     owner = "root";
     mode = "0600";
   };
