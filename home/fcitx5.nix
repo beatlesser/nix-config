@@ -10,8 +10,8 @@
         (fcitx5-rime.override {
           rimeDataPkgs = [
             rime-ice
-	    rime-moegirl
-	    rime-wanxiang
+            rime-moegirl
+            rime-wanxiang
           ];
         })
 
@@ -28,14 +28,14 @@
         addons = {
           classicui.globalSection.Theme = "catppuccin-mocha-blue";
           classicui.globalSection.DarkTheme = "catppuccin-mocha-blue";
-	  pingyin.globalSection = {
-		PageSize = 9;
-		CloudPinyinEnabled = "True";
-		CloudPinyinIndex = 2;
-	  };
-	  cloudpinyin.globalSection = {
-	        Backend = "Baidu";
-	  };
+          pingyin.globalSection = {
+            PageSize = 9;
+            CloudPinyinEnabled = "True";
+            CloudPinyinIndex = 2;
+          };
+          cloudpinyin.globalSection = {
+            Backend = "Baidu";
+          };
         };
         inputMethod = {
           "Groups/0" = {
