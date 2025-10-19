@@ -32,6 +32,11 @@ in
     mode = "0600";
   };
 
+  sops.secrets."subscriptions/wow" = {
+    owner = "root";
+    mode = "0600";
+  };
+
   sops.secrets."cyer/pwd" = {
     neededForUsers = true;
     owner = "${username}";
