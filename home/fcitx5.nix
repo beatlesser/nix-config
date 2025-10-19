@@ -10,8 +10,11 @@
         (fcitx5-rime.override {
           rimeDataPkgs = [
             rime-ice
+	    rime-moegirl
+	    rime-wanxiang
           ];
         })
+
         fcitx5-configtool
         fcitx5-gtk
         #kdePackages.fcitx5-qt
@@ -25,6 +28,14 @@
         addons = {
           classicui.globalSection.Theme = "catppuccin-mocha-blue";
           classicui.globalSection.DarkTheme = "catppuccin-mocha-blue";
+	  pingyin.globalSection = {
+		PageSize = 9;
+		CloudPinyinEnabled = "True";
+		CloudPinyinIndex = 2;
+	  };
+	  cloudpinyin.globalSection = {
+	        Backend = "Baidu";
+	  };
         };
         inputMethod = {
           "Groups/0" = {
