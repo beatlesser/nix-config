@@ -18,11 +18,9 @@
         fcitx5-configtool
         fcitx5-gtk
         #kdePackages.fcitx5-qt
-
         (catppuccin-fcitx5.override {
           withRoundedCorners = true;
         }) # fcitx5-theme
-
       ];
       settings = {
         addons = {
