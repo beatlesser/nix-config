@@ -23,7 +23,13 @@ let
 
   home-modules =
     map relativeToRoot [
-      "home"
+      "home/xdg.nix"
+      "home/starship.nix"
+      "home/shell.nix"
+      "home/clip.nix"
+      "home/git.nix"
+      "home/neovim.nix"
+      "home/fcitx5.nix"
     ]
     ++ [ ./home.nix ];
 in
