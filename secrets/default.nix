@@ -1,5 +1,5 @@
 {
-  pkgs,
+  stable,
   config,
   myvars,
   ...
@@ -8,7 +8,7 @@ let
   inherit (myvars) username;
 in
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with stable; [
     sops
     age
     ssh-to-age
