@@ -4,4 +4,6 @@
 {
   # example = pkgs.callPackage ./example { };
   hello = pkgs.callPackage ./hello { };
+
+  bilibili = pkgs.callPackage ./bilibili { };
 }

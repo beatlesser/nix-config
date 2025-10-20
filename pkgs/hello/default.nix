@@ -6,12 +6,12 @@ stdenv.mkDerivation {
   src = ./src;
 
   buildPhase = ''
-      mkdir -p build
-      gcc -o build/hello $src/main.c
+    mkdir -p build
+    gcc -o build/hello $src/main.c
   '';
 
   installPhase = ''
-      mkdir -p $out/bin
-      cp build/hello $out/bin/
+    mkdir -p $out/bin
+    cp build/hello $out/bin/
   '';
 }
