@@ -6,7 +6,7 @@
     fcitx5 = {
       waylandFrontend = true;
       addons = with pkgs; [
-        fcitx5-gtk # Fcitx5 gtk im module and glib based dbus client library
+        #fcitx5-gtk # Fcitx5 gtk im module and glib based dbus client library
         #kdePackages.fcitx5-qt
         (catppuccin-fcitx5.override {
           withRoundedCorners = true;
