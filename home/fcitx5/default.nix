@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  xdg.dataFile."fcitx5/rime/default.custom.yaml" = {
+    enable = true;
+    source = ./default.custom.yaml;
+  };
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";

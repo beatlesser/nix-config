@@ -4,25 +4,37 @@ let
 in
 {
   #git config
-  programs.git = {
+  programs = {
+    git = {
 
-    enable = true;
+      enable = true;
+      lfs.enable = true;
 
-    lfs.enable = true;
-
-    userName = "${username}";
-    userEmail = "${email}";
-
-    extraConfig = {
-      init.defaultBranch = "main";
-      pull.rebase = true;
-      push.autoSetupRemote = true;
-
-      url = {
-        "ssh://git@github.com/beatlesser" = {
-          insteadOf = "https://github.com/beatlesser";
+      settings = {
+        user = {
+          name = "${username}";
+          email = "${email}";
         };
+
+        alias = {
+          br = "branch";
+          sw = "switch";
+          rs = "reset";
+          rt = "restore";
+          st = "status";
+          df = "diff";
+          ls = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate";
+          ll = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat";
+          cm = "commit -m";
+          ca = "commit -am";
+          caa = "commit --amend -a --no-edit";
+        };
+
+        init.defaultBranch = "main";
+
+        pull.rebase = true;
       };
+
     };
 
     # A syntax-highlighting pager for git, diff, grep, and blame output
@@ -36,20 +48,7 @@ in
         # features = "";
       };
     };
-    aliases = {
-      br = "branch";
-      sw = "switch";
-      rs = "reset";
-      rt = "restore";
-      st = "status";
-      df = "diff";
-      ls = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate";
-      ll = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat";
-      cm = "commit -m";
-      ca = "commit -am";
-      caa = "commit --amend -a --no-edit";
-    };
+    #git gui wrtitten by go
+    lazygit.enable = true;
   };
-  #git gui wrtitten by go
-  programs.lazygit.enable = true;
 }
