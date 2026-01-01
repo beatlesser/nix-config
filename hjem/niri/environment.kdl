@@ -1,0 +1,11 @@
+environment {
+    //输入法
+    XMODIFIERS "@im=fcitx"
+    //GTK_IM_MODULE "fcitx"
+    QT_IM_MODULES "wayland;fcitx"
+    INPUT_METHOD "fcitx"
+    SDL_IM_MODULE "fcitx"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_QPA_PLATFORM "wayland;xcb"
+    LANG "zh_CN.UTF-8"
+}

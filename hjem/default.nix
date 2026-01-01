@@ -1,0 +1,3 @@
+{exlib, ...}: {
+  imports = exlib.importAllFrom ./.;
+}
