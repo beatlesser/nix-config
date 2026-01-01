@@ -1,0 +1,7 @@
+keys:
+  - &cyer age1dp5tj3apjdgd3gz66eqew89htkhqwc20qnucea2hcpus6uu2md9s5d46mh
+creation_rules:
+  - path_regex: '[^/]+\.(yaml|json|env|ini)$'
+    key_groups:
+      - age:
+          - *cyer
